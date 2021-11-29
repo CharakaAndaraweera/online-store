@@ -1,7 +1,8 @@
+import { Button } from "@mui/material";
 import React, { Component } from "react";
 class Counter extends Component {
   state = {
-    value: this.props.value,
+    value: this.props.counter.value,
   };
 
   styles = {
@@ -15,11 +16,19 @@ class Counter extends Component {
           {this.getCount()}
         </span>
         <button
-          className="btn btn-secondary btn-sm"
+          className="btn btn-secondary btn-sm m-2"
           onClick={this.increaseCount}
         >
           Increment
         </button>
+        <Button
+          variant="contained"
+          size="small"
+          color="error"
+          onClick={() => this.props.onDelete(this.props.counter.id)}
+        >
+          Delete
+        </Button>
       </div>
     );
   }
